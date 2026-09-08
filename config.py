@@ -93,6 +93,12 @@ EARLY_COOLDOWN_HOURS = 1        # shorter than the confirmed 2h cooldown, so a d
 COOLDOWN_HOURS = 2
 CANDLE_INTERVAL = "FIVE_MINUTE"
 SCAN_INTERVAL_MINUTES = 15
+SCAN_OFFSET_MINUTES = 3     # staggers this bot's scan start relative to other bots
+                             # sharing your Telegram/reading attention, so 5 bots
+                             # running simultaneously don't all alert in the same
+                             # few seconds. Each bot in your 5-bot setup should use
+                             # a DIFFERENT offset (e.g. 0, 3, 6, 9, 12) - see the
+                             # README for the full staggering scheme.
 
 MARKET_OPEN = "09:15"
 MARKET_CLOSE = "15:30"
