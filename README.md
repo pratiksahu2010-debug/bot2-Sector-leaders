@@ -77,3 +77,20 @@ regardless of score. Everything else scores out of 10 points (RSI range,
 ADX>25, EMA9/21 alignment, last-2-candles direction, volume vs 20-avg,
 VWAP tightness, EMA9 momentum, ADX strength). Alerts fire only at 8/10+.
 See `scoring.py` to adjust weights or thresholds.
+
+## Signal staggering (if running alongside your other bots)
+
+This bot's scans are offset by **3 minutes** within each 15-minute
+cycle (`config.SCAN_OFFSET_MINUTES = 3`), so it scans at
+:3, :18, :33, :48 past each hour -
+never landing on the same minute as your other 4 bots. This spreads out
+Telegram alerts across a rotating 3-minute-apart schedule instead of all
+5 bots firing (and potentially alerting) in the same few seconds:
+
+```
+:00 -> nse_bot1        :03 -> nse_bot2        :06 -> nse_bot3
+:09 -> commodity_bot   :12 -> fno_bot          (repeats every 15 min)
+```
+
+If you add a 6th bot later, give it `SCAN_OFFSET_MINUTES = 13` or similar
+(anything not already used by the other 5) to keep the rotation clean.
