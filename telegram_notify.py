@@ -98,7 +98,7 @@ def send_early_signal(token, chat_id, bot_name, signal_result, symbol) -> str:
         f"📊 RSI: {r.rsi:.1f} | ADX: {r.adx:.1f}\n"
         f"🔴 9 EMA: ₹{r.ema9:.2f} | 🟡 21 EMA: ₹{r.ema21:.2f}\n"
         f"📏 Distance from VWAP: {r.vwap_distance_pct:.2f}%\n"
-        f"🎯 Score: {r.score}/10 (confirmation needs 8+)\n"
+        f"🎯 Score: {r.score}/10 (confirmation needs 9+)\n"
         f"🔔 Not yet a confirmed trade - monitor for full setup\n"
         f"⏰ Time: {now_ist}"
     )
@@ -131,7 +131,7 @@ def send_health_check(token, chat_id, bot_name, symbol_count):
         f"📊 Monitoring: {symbol_count} symbols\n"
         f"⏰ Schedule: Every 15 minutes (9:15 AM - 3:30 PM IST)\n"
         f"📋 VWAP: MANDATORY\n"
-        f"🔒 Strict Mode: score ≥ 8/10 required\n"
+        f"🔒 Strict Mode: score ≥ 9/10 required\n"
         f"✅ Bot is LIVE and scanning!"
     )
     _send(token, chat_id, text)
