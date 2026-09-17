@@ -85,9 +85,9 @@ EMA_FAST, EMA_SLOW = 9, 21
 RSI_PERIOD = 14
 ADX_PERIOD = 14
 
-SCORE_ALERT_THRESHOLD = 8
+SCORE_ALERT_THRESHOLD = 9
 EARLY_SIGNAL_ENABLED = True
-EARLY_SCORE_MIN = 6            # score 6-7/10 = building momentum, not yet confirmed (8+)
+EARLY_SCORE_MIN = 8            # score 8/10 = building momentum, not yet confirmed (9+)
 EARLY_COOLDOWN_HOURS = 1        # shorter than the confirmed 2h cooldown, so a developing
                                  # setup can re-notify sooner as it keeps building
 COOLDOWN_HOURS = 2
